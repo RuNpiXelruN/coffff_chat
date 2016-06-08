@@ -10,6 +10,7 @@ gem 'puma', '~> 3.0'
 
 
 gem 'monban-generators'
+gem "paperclip"
 
 
 # Use SCSS for stylesheets

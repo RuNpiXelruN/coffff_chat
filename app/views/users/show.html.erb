@@ -4,6 +4,18 @@
   <p><%= @user.email %></p>
 </div>
 <% if @user = current_user %>
+  <% if @user.profile.image_file_size %>
+    <%= image_tag @user.profile.image.url(:thumb) %>
+
+    <%= form_for @user.profile do |f| %>
+      <%= f.submit "Change Image ->" %>
+      <%= f.file_field :image %>
+    <% end %>
+  <% else %>
+    <p>Add a profile picture!</p>
+    <%= link_to "Add!", edit_user_path(@user) %>
+  <% end %>
+
   <% if @user.profile.bio %>
     <p><%= @user.profile.bio %></p>
   <% else %>

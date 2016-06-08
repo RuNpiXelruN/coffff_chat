@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
     @user = current_user
     @profile = @user.profile
     if @user
+      if @profile
       @profile.update(profile_params)
       @profile.save
       flash[:notice] = "Successfully Updated"
@@ -21,6 +22,6 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:bio, :user_id)
+    params.require(:profile).permit(:image, :bio, :user_id)
   end
 end

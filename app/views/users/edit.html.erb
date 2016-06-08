@@ -9,6 +9,13 @@
     </ul>
   <% end %>
 
+  <%= image_tag @user.profile.image.url(:medium) %>
+  <div>
+    <%= form.fields_for :profile do |ff| %>
+      <%= ff.file_field :image %>
+    <% end %>
+  </div>
+
   <div>
       <%= form.label :username %>
       <%= form.text_field :username, require: true %>
